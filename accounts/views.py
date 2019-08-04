@@ -32,7 +32,7 @@ def login(request):
     if request.method=="POST":
         #if authenticate gives valid user object
         user=auth.authenticate(username=request.POST['username'],password=request.POST['password'])
-        #if there is a user with valid infp
+        #found your account login
         if user is not None:
             #log user in
             auth.login(request,user)
@@ -44,4 +44,6 @@ def login(request):
         return render(request, 'accounts/login.html')
 
 def logout(request):
-    return render(request, 'accounts/logout.html')
+    if request.method=="POST":
+        auth.logout(request)
+        return redirect('home')
