@@ -124,4 +124,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'todolistdl/static/')
+]
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATIC_URL = '/static/'
+
+
+#when save image it should happen here, it should go inside a new folder called media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#when someon trys to acces an image where do they go. acces site/media/
+MEDIA_URL = '/media/'
