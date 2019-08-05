@@ -1,4 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-home
+<div class="container">
+  <h1 class="text-center pt-3 ">Welcome to ToDoList</h1>
+  <p class="lead text-muted text-center" >Login or Signup to Begin</p>
+
+<div class="container">
+  <a href="{% url 'login' %}" class="text-center"><h3>Login</h3></a>
+  <a href="{% url 'signup' %}" class="text-center"><h3>Signup</h3></a>
+
+</div>
+
+
+
 {% endblock %}

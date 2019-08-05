@@ -17,7 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    #this path will foward to the database
     path('admin/', admin.site.urls),
+    #this path will foward to the todo app folder
     path('',include('todo.urls')),
+    #this path will foward to the accounts app folder
     path('accounts/',include('accounts.urls')),
 ]

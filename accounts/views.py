@@ -13,8 +13,11 @@ def signup(request):
                 #display error in signup.html
                 return render(request, 'accounts/signup.html',{'error':'username taken'})
             except User.DoesNotExist:
+                #username is not taken, make the user account
                 user = User.objects.create_user(username=request.POST['username'],password=request.POST['password2'])
+                #login
                 auth.login(request,user)
+                #direct to create page
                 return redirect('create')
         else:
             #password didnt match
@@ -22,7 +25,7 @@ def signup(request):
 
 
     else:
-        #just get to page
+        #just get to the page
         return render(request, 'accounts/signup.html')
 
 
@@ -30,14 +33,16 @@ def signup(request):
 def login(request):
     #user is signing up
     if request.method=="POST":
-        #if authenticate gives valid user object
+        #if authenticate gives a valid user object, meaning the account exist
         user=auth.authenticate(username=request.POST['username'],password=request.POST['password'])
-        #found your account login
+        #found your account
         if user is not None:
             #log user in
             auth.login(request,user)
+            #direct to homepage
             return redirect('create')
         else:
+            #the user typed in invalid info
             return render(request, 'accounts/login.html',{'error':'username or password inccorect'})
     else:
         #just get to page
