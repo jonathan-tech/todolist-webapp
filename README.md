@@ -6,7 +6,7 @@
 I included a login and signup feature in order to start making a list. When the user signs up their account gets stored into the database. When the user logs in, an input feature will pop up on top of the application, where the user can type and add to a potential list. There will also be a logout link that will sign the user out of the app. Added items can be deleted, crossed off, or 
 edited.
 
-##Preview
+## Preview
 <a href="https://imgflip.com/gif/3oj2x0"><img src="https://i.imgflip.com/3oj2x0.gif" title="made at imgflip.com"/></a>
 
 ## What I learned
